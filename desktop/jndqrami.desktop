@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=JND-Rami
+Exec=jndqrami
+Icon=jndqrami
+Type=Application
+GenericName=Rami card game
+GenericName[fr]=Jeu de cartes Rami
+Comment=Rami card game
+Comment[fr]=Jeu de cartes Rami
+Terminal=false
+Categories=Qt;Game;CardGame;

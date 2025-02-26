@@ -1,0 +1,34 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/IconeProg.png</file>
+        <file>html/Rami.html</file>
+        <file>html/images/Brelan777.png</file>
+        <file>html/images/BrelanVVV.png</file>
+        <file>html/images/Carre10.png</file>
+        <file>html/images/Suite10VDRCarreau.png</file>
+        <file>html/images/Suite1234Trefle.png</file>
+        <file>html/images/SuiteDRAS2Coeur.png</file>
+        <file>sounds/erreur.wav</file>
+        <file>sounds/jette1carte.wav</file>
+        <file>sounds/ordigagne.wav</file>
+        <file>sounds/pose1carte.wav</file>
+        <file>sounds/posecartes.wav</file>
+        <file>sounds/reste1carte.wav</file>
+        <file>icons/AnimationCarte.png</file>
+        <file>icons/NiveauJeu.png</file>
+        <file>icons/Son-Volume.png</file>
+        <file>icons/VitesseJeu.png</file>
+        <file>images/DebutJeu.png</file>
+        <file>images/DessinCartes.png</file>
+        <file>images/DessinEst.png</file>
+        <file>images/DessinNord.png</file>
+        <file>images/DessinOuest.png</file>
+        <file>images/FondCartesJoueur.png</file>
+        <file>images/FondCartesPosees.png</file>
+        <file>images/FondJetee.png</file>
+        <file>images/FondJoueursOrdi.png</file>
+        <file>images/FondPioche.png</file>
+        <file>images/Plateau.png</file>
+        <file>images/RamiSplash.png</file>
+    </qresource>
+</RCC>
