@@ -25,9 +25,9 @@ CRami::CRami(QWidget *parent)
  : QWidget(parent)
 {
 /// creation Layout
-    loadImage( ":/images/Plateau.png", &m_imgPlateau, 918, 655 );
+    loadImage( ":/images/Plateau.png", &m_imgPlateau, 1469, 1128 );
     m_imgMemPlateau = m_imgPlateau;
-    m_afficheurImage = new CAfficheurImage( this, 918, 655 );
+    m_afficheurImage = new CAfficheurImage( this, 1469, 1128 );
     m_afficheurImage->setImage( m_imgMemPlateau );
 
     QWidget *widget;
@@ -92,28 +92,28 @@ CRami::CRami(QWidget *parent)
     brush.setStyle(Qt::SolidPattern);
     palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
 
-    font.setPointSize(20);
+    font.setPointSize(48);
 /// qt6    font.setBold(true);
 /// qt6    font.setWeight(QFont::Weight( 75 ));
     font.setWeight(QFont::Bold);
 
     m_nbCarteOuestLabel = new QLabel(this);
-    m_nbCarteOuestLabel->setGeometry(QRect(42, 40, 36, 36));
+    m_nbCarteOuestLabel->setGeometry(QRect(73, 62, 86, 86));
     m_nbCarteOuestLabel->setPalette(palette);
     m_nbCarteOuestLabel->setFont(font);
 
     m_nbCarteNordLabel = new QLabel(this);
-    m_nbCarteNordLabel->setGeometry(QRect(438, 40, 36, 36));
+    m_nbCarteNordLabel->setGeometry(QRect(709, 62, 86, 86));
     m_nbCarteNordLabel->setPalette(palette);
     m_nbCarteNordLabel->setFont(font);
 
     m_nbCarteEstLabel = new QLabel(this);
-    m_nbCarteEstLabel->setGeometry(QRect(830, 40, 36, 36));
+    m_nbCarteEstLabel->setGeometry(QRect(1341, 62, 86, 86));
     m_nbCarteEstLabel->setPalette(palette);
     m_nbCarteEstLabel->setFont(font);
 
     m_nbCarteSudLabel = new QLabel(this);
-    m_nbCarteSudLabel->setGeometry(QRect(866, 580, 36, 36));
+    m_nbCarteSudLabel->setGeometry(QRect(1380, 1020, 86, 86));
     m_nbCarteSudLabel->setPalette(palette);
     m_nbCarteSudLabel->setFont(font);
 
@@ -123,7 +123,7 @@ CRami::CRami(QWidget *parent)
 
 /// Initialise Images et Son
 
-    loadImage( ":/images/DessinCartes.png", &m_imgDessinCartes, 780, 400 );
+    loadImage( ":/images/DessinCartes.png", &m_imgDessinCartes, 1196, 675 );
 
     m_mySDLPlayer = new SDLPlayer();
 
@@ -133,10 +133,10 @@ CRami::CRami(QWidget *parent)
 /// qt6    qsrand ( time (0) );
     srand ( time (0) );
 
-    m_rectpioche = QRect(390,483,56,76);
-    m_rectjetees = QRect(469,483,56,76);
-    m_rectcartes = QRect(60,576,798,76);
-    m_rectposees = QRect(3,82,910,396);
+    m_rectpioche = QRect(634,833,90,131);
+    m_rectjetees = QRect(742,833,90,131);
+    m_rectcartes = QRect(90,990,1230,131);
+    m_rectposees = QRect(5,139,1459,680);
 
     m_periodeJeu = ATTENTE;
     m_f_EtatPartie = false;
@@ -386,10 +386,10 @@ void CRami::Jeu_Fin_1_Partie()
     if( ptE != 0 )
     {
       nom = "EST";
-      afficherMsgNom( nom, 10, 97 );
+      afficherMsgNom( nom, 10, 171 );
       afficherCartesJeuEst();
       penalite = QString( "%1" ).arg( ptE );
-      afficherMsgPenalite( penalite, 10, 97 );
+      afficherMsgPenalite( penalite, 10, 171 );
       faireTemporisation( m_tempo_attente );
     }
 
@@ -398,10 +398,10 @@ void CRami::Jeu_Fin_1_Partie()
     if( ptN != 0 )
     {
       nom = "NORD";
-      afficherMsgNom( nom, 10, 194 );
+      afficherMsgNom( nom, 10, 333 );
       afficherCartesJeuNord();
       penalite = QString( "%1" ).arg( ptN );
-      afficherMsgPenalite( penalite, 10, 194 );
+      afficherMsgPenalite( penalite, 10, 333 );
       faireTemporisation( m_tempo_attente );
     }
 
@@ -410,10 +410,10 @@ void CRami::Jeu_Fin_1_Partie()
     if( ptO != 0 )
     {
       nom = "OUEST";
-      afficherMsgNom( nom, 10, 291 );
+      afficherMsgNom( nom, 10, 495 );
       afficherCartesJeuOuest();
       penalite = QString( "%1" ).arg( ptO );
-      afficherMsgPenalite( penalite, 10, 291 );
+      afficherMsgPenalite( penalite, 10, 495 );
       faireTemporisation( m_tempo_attente );
     }
 
@@ -422,10 +422,10 @@ void CRami::Jeu_Fin_1_Partie()
     if( ptS != 0 )
     {
       nom = "SUD";
-      afficherMsgNom( nom, 10, 388 );
-      afficherCartesJeu( 130, 388, m_jeu_Sud, 13 );
+      afficherMsgNom( nom, 10, 657 );
+      afficherCartesJeu( 250, 657, m_jeu_Sud, 13 );
       penalite = QString( "%1" ).arg( ptS );
-      afficherMsgPenalite( penalite, 10, 388 );
+      afficherMsgPenalite( penalite, 10, 657 );
       faireTemporisation( m_tempo_attente );
     }
 
@@ -516,12 +516,12 @@ void CRami::afficher_g_p_Ouest()
 
 void CRami::effacerCartesJeuSud()
 {
-    loadImage( ":/images/FondCartesJoueur.png", &m_imgFondCartesJoueur, 911, 89 );
+    loadImage( ":/images/FondCartesJoueur.png", &m_imgFondCartesJoueur, 1459, 145 );
 
     m_imgCopie = m_imgMemPlateau;
     QPainter painter(&m_imgCopie);
     painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-    painter.drawImage(3, 562, m_imgFondCartesJoueur);
+    painter.drawImage(5, 977, m_imgFondCartesJoueur);
     painter.end();
     m_imgMemPlateau = m_imgCopie;
     m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -529,12 +529,12 @@ void CRami::effacerCartesJeuSud()
 
 void CRami::effacerCartePioche()
 {
-    loadImage( ":/images/FondPioche.png", &m_imgFondPioche, 75, 77 );
+    loadImage( ":/images/FondPioche.png", &m_imgFondPioche, 104, 145 );
 
     m_imgCopie = m_imgMemPlateau;
     QPainter painter(&m_imgCopie);
     painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-    painter.drawImage(380, 482, m_imgFondPioche);
+    painter.drawImage(628, 827, m_imgFondPioche);
     painter.end();
     m_imgMemPlateau = m_imgCopie;
     m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -542,12 +542,12 @@ void CRami::effacerCartePioche()
 
 void CRami::effacerCarteJetee()
 {
-    loadImage( ":/images/FondJetee.png", &m_imgFondJetee, 75, 77 );
+    loadImage( ":/images/FondJetee.png", &m_imgFondJetee, 101, 144 );
 
     m_imgCopie = m_imgMemPlateau;
     QPainter painter(&m_imgCopie);
     painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-    painter.drawImage(458, 482, m_imgFondJetee);
+    painter.drawImage(736, 827, m_imgFondJetee);
     painter.end();
     m_imgMemPlateau = m_imgCopie;
     m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -555,12 +555,12 @@ void CRami::effacerCarteJetee()
 
 void CRami::effacerCartesPosees()
 {
-    loadImage( ":/images/FondCartesPosees.png", &m_imgFondCartesPosees, 911, 396 );
+    loadImage( ":/images/FondCartesPosees.png", &m_imgFondCartesPosees, 1459, 681 );
 
     m_imgCopie = m_imgMemPlateau;
     QPainter painter(&m_imgCopie);
     painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-    painter.drawImage(3, 82, m_imgFondCartesPosees);
+    painter.drawImage(5, 140, m_imgFondCartesPosees);
     painter.end();
     m_imgMemPlateau = m_imgCopie;
     m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -568,12 +568,12 @@ void CRami::effacerCartesPosees()
 
 void CRami::effacerCarreJoueursOrdi()
 {
-    loadImage( ":/images/FondJoueursOrdi.png", &m_imgFondJoueursOrdi, 911, 75 );
+    loadImage( ":/images/FondJoueursOrdi.png", &m_imgFondJoueursOrdi, 1459, 129 );
 
     m_imgCopie = m_imgMemPlateau;
     QPainter painter(&m_imgCopie);
     painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-    painter.drawImage(3, 3, m_imgFondJoueursOrdi);
+    painter.drawImage(5, 5, m_imgFondJoueursOrdi);
     painter.end();
     m_imgMemPlateau = m_imgCopie;
     m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -1012,19 +1012,19 @@ void CRami::effacerNbCartesJoueurs()
 
 void CRami::afficherCartesJeuEst()
 {
-    afficherCartesJeu( 130, 97, m_jeu_Est, 13 );
+    afficherCartesJeu( 250, 171, m_jeu_Est, 13 );
 }
 
 
 void CRami::afficherCartesJeuNord()
 {
-    afficherCartesJeu( 130, 194, m_jeu_Nord, 13 );
+    afficherCartesJeu( 250, 333, m_jeu_Nord, 13 );
 }
 
 
 void CRami::afficherCartesJeuOuest()
 {
-    afficherCartesJeu( 130, 291, m_jeu_Ouest, 13 );
+    afficherCartesJeu( 250, 495, m_jeu_Ouest, 13 );
 }
 
 void CRami::afficherCartesJeu( const int x, const int y, const quint8 *aJeu, const int nbcarte)
@@ -1041,14 +1041,14 @@ void CRami::afficherCartesJeu( const int x, const int y, const quint8 *aJeu, con
         p = calculerSourceXY1Carte( carte );
         afficherUneCarte( dx, dy, p.x(), p.y() );
       }
-      dx= dx + 57;
+      dx= dx + 91;
     }
 }
 
 void CRami::afficherCartesJeuSud()
 {
     effacerCartesJeuSud();
-    int dx = 60;
+    int dx = 90;
     int dy;
     QPoint p;
     int carte;
@@ -1058,18 +1058,18 @@ void CRami::afficherCartesJeuSud()
       carte = m_jeu_Sud[i];
       if( carte > 0 )
       {
-        dy = 576;
-        if( m_cartesSelect_Sud[ i ] != PASCARTE )	dy = 562;
+        dy = 990;
+        if( m_cartesSelect_Sud[ i ] != PASCARTE )	dy = 978;
         p = calculerSourceXY1Carte( carte );
         afficherUneCarte( dx, dy, p.x(), p.y() );
       }
-      dx= dx + 57;
+      dx= dx + 91;
     }
 }
 
 void CRami::afficherDosCartePioche()
 {
-    afficherUneCarte( 390, 483, 0, 320 );
+    afficherUneCarte( 634, 833, 0, 540 );
 }
 
 void CRami::afficherUneCarte( const int dx, const int dy, const int carte )
@@ -1078,7 +1078,7 @@ void CRami::afficherUneCarte( const int dx, const int dy, const int carte )
     if( carte == DOSCARTE )
     {
       p.setX( 0 );
-      p.setY( 320 );
+      p.setY( 540 );
     }
     else
     {
@@ -1089,7 +1089,7 @@ void CRami::afficherUneCarte( const int dx, const int dy, const int carte )
 
 void CRami::effacerUneCarte( const int dx, const int dy )
 {
-    afficherUneCarte( dx, dy, 720, 320 );
+    afficherUneCarte( dx, dy, 1104, 540 );
 }
 
 void CRami::afficherUneCarte( const int dx, const int dy, const int sx, const int sy )
@@ -1098,7 +1098,7 @@ void CRami::afficherUneCarte( const int dx, const int dy, const int sx, const in
 //	QPainter painter(&m_imgCopie);
     QPainter painter(&m_imgMemPlateau);
     painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-    painter.drawImage( dx, dy, m_imgDessinCartes, sx, sy, 56, 76 );
+    painter.drawImage( dx, dy, m_imgDessinCartes, sx, sy, 90, 131 );
     painter.end();
 //	m_imgMemPlateau = m_imgCopie;
     m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -1110,7 +1110,7 @@ void CRami::dessinerUneCarte( const int dx, const int dy, const int sx, const in
 //  QPainter painter(&m_imgCopie);
     QPainter painter(&m_imgMemPlateau);
     painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-    painter.drawImage( dx, dy, m_imgDessinCartes, sx, sy, 56, 76 );
+    painter.drawImage( dx, dy, m_imgDessinCartes, sx, sy, 90, 131 );
     painter.end();
 //  m_imgMemPlateau = m_imgCopie;
 //  m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -1120,11 +1120,11 @@ void CRami::afficherDessinJoueurs()
 {
     if(m_nombredejoueur == 2)
     {
-      loadImage( ":/images/DessinNord.png", &m_imgDessinNord, 99, 63 );
+      loadImage( ":/images/DessinNord.png", &m_imgDessinNord, 174, 128 );
       m_imgCopie = m_imgMemPlateau;
       QPainter painterN(&m_imgCopie);
       painterN.setCompositionMode(QPainter::CompositionMode_SourceOver);
-      painterN.drawImage(408, 10, m_imgDessinNord);
+      painterN.drawImage(647, 5, m_imgDessinNord);
       painterN.end();
       m_imgMemPlateau = m_imgCopie;
       m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -1132,20 +1132,20 @@ void CRami::afficherDessinJoueurs()
 
     if(m_nombredejoueur == 3)
     {
-      loadImage( ":/images/DessinEst.png", &m_imgDessinEst, 99, 63 );
+      loadImage( ":/images/DessinEst.png", &m_imgDessinEst, 174, 128 );
       m_imgCopie = m_imgMemPlateau;
       QPainter painterE(&m_imgCopie);
       painterE.setCompositionMode(QPainter::CompositionMode_SourceOver);
-      painterE.drawImage(798, 10, m_imgDessinEst);
+      painterE.drawImage(1280, 5, m_imgDessinEst);
       painterE.end();
       m_imgMemPlateau = m_imgCopie;
       m_afficheurImage->afficherImage( m_imgMemPlateau );
 
-      loadImage( ":/images/DessinOuest.png", &m_imgDessinOuest, 99, 63 );
+      loadImage( ":/images/DessinOuest.png", &m_imgDessinOuest, 174, 128 );
       m_imgCopie = m_imgMemPlateau;
       QPainter painterO(&m_imgCopie);
       painterO.setCompositionMode(QPainter::CompositionMode_SourceOver);
-      painterO.drawImage(10, 10, m_imgDessinOuest);
+      painterO.drawImage(15, 5, m_imgDessinOuest);
       painterO.end();
       m_imgMemPlateau = m_imgCopie;
       m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -1153,29 +1153,29 @@ void CRami::afficherDessinJoueurs()
 
     if(m_nombredejoueur == 4)
     {
-      loadImage( ":/images/DessinEst.png", &m_imgDessinEst, 99, 63 );
+      loadImage( ":/images/DessinEst.png", &m_imgDessinEst, 174, 128 );
       m_imgCopie = m_imgMemPlateau;
       QPainter painterE(&m_imgCopie);
       painterE.setCompositionMode(QPainter::CompositionMode_SourceOver);
-      painterE.drawImage(798, 10, m_imgDessinEst);
+      painterE.drawImage(1280, 5, m_imgDessinEst);
       painterE.end();
       m_imgMemPlateau = m_imgCopie;
       m_afficheurImage->afficherImage( m_imgMemPlateau );
 
-      loadImage( ":/images/DessinNord.png", &m_imgDessinNord, 99, 63 );
+      loadImage( ":/images/DessinNord.png", &m_imgDessinNord, 174, 128 );
       m_imgCopie = m_imgMemPlateau;
       QPainter painterN(&m_imgCopie);
       painterN.setCompositionMode(QPainter::CompositionMode_SourceOver);
-      painterN.drawImage(408, 10, m_imgDessinNord);
+      painterN.drawImage(647, 5, m_imgDessinNord);
       painterN.end();
       m_imgMemPlateau = m_imgCopie;
       m_afficheurImage->afficherImage( m_imgMemPlateau );
 
-      loadImage( ":/images/DessinOuest.png", &m_imgDessinOuest, 99, 63 );
+      loadImage( ":/images/DessinOuest.png", &m_imgDessinOuest, 174, 128 );
       m_imgCopie = m_imgMemPlateau;
       QPainter painterO(&m_imgCopie);
       painterO.setCompositionMode(QPainter::CompositionMode_SourceOver);
-      painterO.drawImage(10, 10, m_imgDessinOuest);
+      painterO.drawImage(15, 5, m_imgDessinOuest);
       painterO.end();
       m_imgMemPlateau = m_imgCopie;
       m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -1555,7 +1555,7 @@ void CRami::Ordi_Test_A_PrisCJetee( const quint8 *jeu )
 {
     effacerCartesJeuSud();
 
-    afficherCartesJeu( 60, 576, jeu, 14 );
+    afficherCartesJeu( 90, 990, jeu, 14 );
 
     QMessageBox msgBox(QMessageBox::Information, NOM_PROG + " - Test",
                        QString(" ORDI\n\n"
@@ -1570,7 +1570,7 @@ void CRami::Ordi_Test_A_Poser( const quint8 *jeu )
 {
     effacerCartesJeuSud();
 
-    afficherCartesJeu( 60, 576, jeu, 14 );
+    afficherCartesJeu( 90, 990, jeu, 14 );
 
     QMessageBox msgBox(QMessageBox::Information, NOM_PROG + " - Test",
                        QString(" ORDI\n\n"
@@ -1585,7 +1585,7 @@ void CRami::Ordi_Test_A_Poser1C( const quint8 *jeu )
 {
     effacerCartesJeuSud();
 
-    afficherCartesJeu( 60, 576, jeu, 14 );
+    afficherCartesJeu( 90, 990, jeu, 14 );
 
     QMessageBox msgBox(QMessageBox::Information, NOM_PROG + " - Test",
                        QString(" ORDI\n\n"
@@ -1600,7 +1600,7 @@ void CRami::Ordi_Test_A_Piocher( const quint8 *jeu )
 {
     effacerCartesJeuSud();
 
-    afficherCartesJeu( 60, 576, jeu, 14 );
+    afficherCartesJeu( 90, 990, jeu, 14 );
 
     QMessageBox msgBox(QMessageBox::Information, NOM_PROG + " - Test",
                        QString(" ORDI\n\n"
@@ -1615,7 +1615,7 @@ void CRami::Ordi_Test_A_Jeter1C( const quint8 *jeu )
 {
     effacerCartesJeuSud();
 
-    afficherCartesJeu( 60, 576, jeu, 14 );
+    afficherCartesJeu( 90, 990, jeu, 14 );
 
     QMessageBox msgBox(QMessageBox::Information, NOM_PROG + " - Test",
                        QString(" ORDI\n\n"
@@ -2186,32 +2186,32 @@ int CRami::calculerPenaliteCartesJeuSud()
 
 void CRami::afficherRectOrangeEst()
 {
-    afficherRectangleOrange( 796, 8 );
+    afficherRectangleOrange( 1280, 5 );
 }
 
 void CRami::afficherRectOrangeNord()
 {
-    afficherRectangleOrange( 406, 8 );
+    afficherRectangleOrange( 647, 5 );
 }
 
 void CRami::afficherRectOrangeOuest()
 {
-     afficherRectangleOrange( 8, 8 );
+     afficherRectangleOrange( 15, 5 );
 }
 
 void CRami::effacerRectOrangeEst()
 {
-    effacerRectangleOrange( 796, 8 );
+    effacerRectangleOrange( 1280, 5 );
 }
 
 void CRami::effacerRectOrangeNord()
 {
-    effacerRectangleOrange( 406, 8 );
+    effacerRectangleOrange( 647, 5 );
 }
 
 void CRami::effacerRectOrangeOuest()
 {
-    effacerRectangleOrange( 8, 8 );
+    effacerRectangleOrange( 15, 5 );
 }
 
 
@@ -2294,7 +2294,7 @@ void CRami::gauchePressed_Jetees()
     m_feventmouse = true;
     m_fclicjetee = true;
     quint8 carte = m_cartesjetees[ m_index_carte_jetee + 2 ];
-    afficherUneCarte( 469, 483, carte );
+    afficherUneCarte( 742, 833, carte );
     m_prise_ds_jetee_Sud = m_cartesjetees[ m_index_carte_jetee + 1 ];
     m_movecopiePlateau = m_imgMemPlateau;
     m_moveposX = m_posClicX;
@@ -2304,7 +2304,7 @@ void CRami::gauchePressed_Jetees()
     m_movesrcX = p.x();
     m_movesrcY = p.y();
 
-    afficherUneCarte( m_posClicX-28, m_posClicY-38, m_movesrcX, m_movesrcY );
+    afficherUneCarte( m_posClicX-45, m_posClicY-65, m_movesrcX, m_movesrcY );
     m_movecarteSud = true;
 }
 
@@ -2332,14 +2332,14 @@ void CRami::gauchePressed_Pioche()
     m_movesrcX = p.x();
     m_movesrcY = p.y();
 
-    afficherUneCarte( m_posClicX-28, m_posClicY-38, m_movesrcX, m_movesrcY );
+    afficherUneCarte( m_posClicX-45, m_posClicY-65, m_movesrcX, m_movesrcY );
     m_movecarteSud = true;
 }
 
 void CRami::gauchePressed_Cartes()
 {
   int posX = m_posClicX - OFFSET;
-  m_indexcartecliquee = posX / 57;
+  m_indexcartecliquee = posX / 91;
   if( PASCARTE == m_jeu_Sud[ m_indexcartecliquee ] )
   {
     jouerSonErreur();
@@ -2367,7 +2367,7 @@ void CRami::gauchePressed_Cartes()
     m_movesrcX = p.x();
     m_movesrcY = p.y();
 
-    afficherUneCarte( m_posClicX-28, m_posClicY-38, m_movesrcX, m_movesrcY );
+    afficherUneCarte( m_posClicX-45, m_posClicY-65, m_movesrcX, m_movesrcY );
   }
   else
   {
@@ -2408,7 +2408,7 @@ void CRami::gauchePressed_Cartes()
     m_moveposX = m_posClicX;
     m_moveposY = m_posClicY;
 
-    afficherCartesSelect_Sud( m_posClicX-28, m_posClicY-38 );
+    afficherCartesSelect_Sud( m_posClicX-45, m_posClicY-65 );
   }
 
   m_movecarteSud = true;
@@ -2417,7 +2417,7 @@ void CRami::gauchePressed_Cartes()
 void CRami::controlgauchePressed_Cartes()
 {
     int posX = m_posClicX - OFFSET;
-    m_indexcartecliquee = posX / 57;
+    m_indexcartecliquee = posX / 91;
     quint8 carte = m_jeu_Sud[ m_indexcartecliquee ];
     if( PASCARTE == carte )
     {
@@ -2522,8 +2522,8 @@ void CRami::droitReleased_Jetees()
       effacerCartePioche();
       effacerCarteJetee();
 
-      int dx = 3;
-      int dy = 483;
+      int dx = 5;
+      int dy = 833;
       QPoint p;
       quint8 carte;
       int ijetee = m_index_carte_jetee;
@@ -2536,7 +2536,7 @@ void CRami::droitReleased_Jetees()
           p = calculerSourceXY1Carte( carte );
           afficherUneCarte( dx, dy, p.x(), p.y() );
         }
-        dx = dx + 57;
+        dx = dx + 91;
       }
 
       faireTemporisation( 2000 );
@@ -2621,7 +2621,7 @@ void CRami::gaucheReleased_Erreur()
     {
 /// VIENT DE JETEES
       quint8 carte = m_cartesjetees[ m_index_carte_jetee + 1 ];
-      afficherUneCarte( 469, 483, carte );
+      afficherUneCarte( 742, 833, carte );
       m_fclicjetee = false;
       m_prise_ds_jetee_Sud = PASCARTE;
     }
@@ -2691,7 +2691,7 @@ void CRami::gaucheReleased_Pioche()
 /// VIENT DE JETEES
             jouerSonErreur();
             quint8 carte = m_cartesjetees[ m_index_carte_jetee + 1 ];
-            afficherUneCarte( 469, 483, carte );
+            afficherUneCarte( 742, 833, carte );
             m_fclicjetee = false;
             m_prise_ds_jetee_Sud = PASCARTE;
         }
@@ -2712,7 +2712,7 @@ copierTableau( m_jeu_Sud, jeuavant, 16 );
 
     int nbdecalage;
     int posX = m_posClicX - OFFSET;
-    int indexarrivee = posX / 57;
+    int indexarrivee = posX / 91;
 
     if( m_fclic1carte == true || m_fcliccartesselect == true )
     {
@@ -2959,7 +2959,7 @@ void CRami::gaucheReleased_Posees()
           {
             m_cartesjetees[ m_index_carte_jetee ] = m_prise_ds_jetee_Sud;
             quint8 carte = m_prise_ds_jetee_Sud;
-            afficherUneCarte( 469, 483, carte );
+            afficherUneCarte( 742, 833, carte );
             m_index_carte_jetee -= 1;
             m_fclicjetee = false;
             m_prise_ds_jetee_Sud = PASCARTE;
@@ -3172,7 +3172,7 @@ void CRami::gaucheReleased_Posees()
           {
             m_cartesjetees[ m_index_carte_jetee ] = m_prise_ds_jetee_Sud;
             quint8 carte = m_prise_ds_jetee_Sud;
-            afficherUneCarte( 469, 483, carte );
+            afficherUneCarte( 742, 833, carte );
             m_index_carte_jetee -= 1;
             m_fclicjetee = false;
             m_prise_ds_jetee_Sud = PASCARTE;
@@ -3201,7 +3201,7 @@ void CRami::gaucheReleased_Posees()
       {
     /// VIENT DE JETEES
         quint8 carte = m_cartesjetees[ m_index_carte_jetee + 1 ];
-        afficherUneCarte( 469, 483, carte );
+        afficherUneCarte( 742, 833, carte );
         m_fclicjetee = false;
         m_prise_ds_jetee_Sud = PASCARTE;
       }
@@ -3218,7 +3218,7 @@ void CRami::gaucheReleased_Jetees()
     }
     else
     {
-       m_imgMemPlateau = m_movecopiePlateau;
+        m_imgMemPlateau = m_movecopiePlateau;
         m_afficheurImage->afficherImage( m_imgMemPlateau );
 
         if( m_fclic1carte == true || m_fcliccartesselect == true )
@@ -3227,8 +3227,8 @@ void CRami::gaucheReleased_Jetees()
             if( m_fcliccartesselect == true )
             {
                 jouerSonErreur();
-        copierTableau( m_savejeuSud, m_jeu_Sud, 16 );
-        m_nbcartes_Sud = m_savenbcartesSud;
+                copierTableau( m_savejeuSud, m_jeu_Sud, 16 );
+                m_nbcartes_Sud = m_savenbcartesSud;
 
 /*
                 m_pBaseJoueurs->supprimerTrouJeu( m_jeu_Sud, 14 );
@@ -3257,14 +3257,14 @@ void CRami::gaucheReleased_Jetees()
             else		/// 1 carte
             {
     /// VIENT DE 1 CARTE
-        m_cartesjetees[m_index_carte_jetee] = m_prise_ds_jeu_Sud;
-        m_index_carte_jetee -= 1;
-        afficherUneCarte( 469, 483, m_prise_ds_jeu_Sud );
+                m_cartesjetees[m_index_carte_jetee] = m_prise_ds_jeu_Sud;
+                m_index_carte_jetee -= 1;
+                afficherUneCarte( 742, 833, m_prise_ds_jeu_Sud );
                 afficherCartesJeuSud();
 
-        if( m_nbcartes_Sud == 0 )
+                if( m_nbcartes_Sud == 0 )
                 {
-                  jouerSonGagne( SUD );
+                    jouerSonGagne( SUD );
                     m_quigagne = SUD;
                     m_periodeJeu = FIN1PARTIE;
                 }
@@ -3297,7 +3297,7 @@ void CRami::gaucheReleased_Jetees()
           {
     /// VIENT DE JETEES
             quint8 carte = m_cartesjetees[ m_index_carte_jetee + 1 ];
-            afficherUneCarte( 469, 483, carte );
+            afficherUneCarte( 742, 833, carte );
             m_fclicjetee = false;
             m_prise_ds_jetee_Sud = PASCARTE;
           }
@@ -3321,7 +3321,7 @@ void CRami::mouseMoveEvent( QMouseEvent * event )
           if( newposXY != oldposXY )
           {
             m_imgMemPlateau = m_movecopiePlateau;
-            afficherCartesSelect_Sud( newposXY.x()-28, newposXY.y()-38 );
+            afficherCartesSelect_Sud( newposXY.x()-45, newposXY.y()-65 );
             m_moveposX = newposXY.x();
             m_moveposY = newposXY.y();
           }
@@ -3334,7 +3334,7 @@ void CRami::mouseMoveEvent( QMouseEvent * event )
           if( newposXY != oldposXY )
           {
             m_imgMemPlateau = m_movecopiePlateau;
-            afficherUneCarte( newposXY.x()-28, newposXY.y()-38, m_movesrcX, m_movesrcY );
+            afficherUneCarte( newposXY.x()-45, newposXY.y()-65, m_movesrcX, m_movesrcY );
             m_moveposX = newposXY.x();
             m_moveposY = newposXY.y();
           }
@@ -3396,7 +3396,7 @@ void CRami::afficherErreurPoseSud( const int numerreur )
     pen.setBrush( QColor( 255, 128, 0, 255 ));
     painter.setPen( pen );
     QFont font;
-    font.setPointSize(20);
+    font.setPointSize(40);
 /// qt6    font.setBold(true);
 /// qt6    font.setWeight(QFont::Weight( 75 ));
     font.setWeight(QFont::Bold);
@@ -3407,10 +3407,10 @@ void CRami::afficherErreurPoseSud( const int numerreur )
     int x_msg = W_AFF_ECRAN - w_msg;
     x_msg = x_msg / 2;
 
-    painter.drawText( x_msg, 540, msg );
+    painter.drawText( x_msg, 920, msg );
     painter.end();
     m_afficheurImage->afficherImage( m_imgMemPlateau );
-    faireTemporisation( 2000 );
+    faireTemporisation( 3000 );
 
     m_imgMemPlateau = imgCopie;
     m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -3501,30 +3501,30 @@ QPoint CRami::calculerSourceXY1Carte( const int carte )
 {
     QPoint p;
     int sx, sy;
-    if( carte > 80 )
+    if( carte > 80 )                    // DOS
     {
       sx = 0;
-      sy = 320;
+      sy = 540;
     }
-    if( carte > 60 && carte < 80 )
+    if( carte > 60 && carte < 80 )      // TREFLE
     {
-      sx = 60 * ( carte - 61 );
-      sy = 80 * 3;
+      sx = 92 * ( carte - 61 );
+      sy = 135 * 3;
     }
-    if( carte > 40 && carte < 60 )
+    if( carte > 40 && carte < 60 )      // CARREAU
     {
-      sx = 60 * ( carte - 41 );
-      sy = 80 * 2;
+      sx = 92 * ( carte - 41 );
+      sy = 135 * 2;
     }
-    if( carte > 20 && carte < 40 )
+    if( carte > 20 && carte < 40 )      // PIQUE
     {
-      sx = 60 * ( carte - 21 );
-      sy = 80 * 1;
+      sx = 92 * ( carte - 21 );
+      sy = 135 * 1;
     }
-    if( carte > 0 && carte < 20 )
+    if( carte > 0 && carte < 20 )       // COEUR
     {
-      sx = 60 * ( carte - 1 );
-      sy = 80 * 0;
+      sx = 92 * ( carte - 1 );
+      sy = 135 * 0;
     }
     p.setX( sx );
     p.setY( sy );
@@ -3533,11 +3533,11 @@ QPoint CRami::calculerSourceXY1Carte( const int carte )
 
 void CRami::afficherImageDebutJeu()
 {
-    loadImage( ":/images/DebutJeu.png", &m_imgDebutJeu, 512, 384 );
+    loadImage( ":/images/DebutJeu.png", &m_imgDebutJeu, 820, 660 );
     m_imgCopie = m_imgMemPlateau;
     QPainter painterN(&m_imgCopie);
     painterN.setCompositionMode(QPainter::CompositionMode_SourceOver);
-    painterN.drawImage(203, 135, m_imgDebutJeu);
+    painterN.drawImage(324, 234, m_imgDebutJeu);
     painterN.end();
     m_imgMemPlateau = m_imgCopie;
     m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -3566,7 +3566,7 @@ void CRami::afficherRectangleOrange( const int x, const int y )
     pen.setWidth( 3 );
     pen.setBrush( QColor( 255, 128, 0, 255 ));
     painter.setPen( pen );
-    painter.drawRect( x, y, 104, 68 );
+    painter.drawRect( x, y, 174, 128 );
     painter.end();
     m_imgMemPlateau = m_imgCopie;
     m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -3580,7 +3580,7 @@ void CRami::effacerRectangleOrange( const int x, const int y )
     pen.setWidth( 3 );
     pen.setBrush( QColor( 0, 102, 0, 255 ));
     painter.setPen( pen );
-    painter.drawRect( x, y, 104, 68 );
+    painter.drawRect( x, y, 174, 128 );
     painter.end();
     m_imgMemPlateau = m_imgCopie;
     m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -3594,7 +3594,7 @@ void CRami::afficherMsgQuiGagne( const QString &msg )
     pen.setBrush( QColor( 255, 128, 0, 255 ));
     painter.setPen( pen );
     QFont font;
-    font.setPointSize(40);
+    font.setPointSize(48);
 /// qt6    font.setBold(true);
 /// qt6    font.setWeight(QFont::Weight( 75 ));
     font.setWeight(QFont::Bold);
@@ -3605,7 +3605,7 @@ void CRami::afficherMsgQuiGagne( const QString &msg )
     int x_msg = W_AFF_ECRAN - w_msg;
     x_msg = x_msg / 2;
 
-    painter.drawText( x_msg, 540, msg );
+    painter.drawText( x_msg, 920, msg );
     painter.end();
     m_imgMemPlateau = m_imgCopie;
     m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -3619,12 +3619,12 @@ void CRami::afficherMsgNom( const QString &msg, const int x, const int y )
     pen.setBrush( QColor( 255, 128, 0, 255 ));
     painter.setPen( pen );
     QFont font;
-    font.setPointSize(20);
+    font.setPointSize(48);
 /// qt6    font.setBold(true);
 /// qt6    font.setWeight(QFont::Weight( 75 ));
     font.setWeight(QFont::Bold);
     painter.setFont( font );
-    painter.drawText( x, y + 30, msg );
+    painter.drawText( x, y + 66, msg );
     painter.end();
     m_imgMemPlateau = m_imgCopie;
     m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -3638,12 +3638,12 @@ void CRami::afficherMsgPenalite( const QString &msg, const int x, const int y )
     pen.setBrush( QColor( 255, 128, 0, 255 ));
     painter.setPen( pen );
     QFont font;
-    font.setPointSize(20);
+    font.setPointSize(48);
 /// qt6    font.setBold(true);
 /// qt6    font.setWeight(QFont::Weight( 75 ));
     font.setWeight(QFont::Bold);
     painter.setFont( font );
-    painter.drawText( x, y + 60, msg );
+    painter.drawText( x, y + 126, msg );
     painter.end();
     m_imgMemPlateau = m_imgCopie;
     m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -3668,21 +3668,21 @@ void CRami::afficherAnimationPiocheCarte( const int carte, const quint8 joueur )
       QImage imgCopie;
       if( joueur == EST )
       {
-          incX = 33;
-          posX = 458 - 33;
+          incX = 48;
+          posX = 733 - 48;
       }
       if( joueur == NORD )
       {
           incX = 0;
-          posX = 458;
+          posX = 733;
       }
       if( joueur == OUEST )
       {
-          incX = -33;
-          posX = 458 + 33;
+          incX = -48;
+          posX = 733 + 48;
       }
-      incY = 40;
-      posY = 522 + 40;
+      incY = 62;
+      posY = 902 + 62;
 
       imgCopie = m_imgMemPlateau;
 
@@ -3691,9 +3691,9 @@ void CRami::afficherAnimationPiocheCarte( const int carte, const quint8 joueur )
         m_imgMemPlateau = imgCopie;
         posX = posX + incX;
         posY = posY - incY;
-        if( posY >= 42 )
+        if( posY >= 90 )
         {
-          afficherUneCarte( posX - 28, posY - 38, carte );
+          afficherUneCarte( posX - 45, posY - 65, carte );
           faireTemporisation( m_tempo_anime );
         }
       }
@@ -3711,21 +3711,21 @@ void CRami::afficherAnimationJetteCarte( const int carte, const quint8 joueur )
       QImage imgCopie;
       if( joueur == EST )
       {
-          incX = -33;
-          posX = 854 + 33;
+          incX = -48;
+          posX = 1357 + 48;
       }
       if( joueur == NORD )
       {
           incX = 0;
-          posX = 458;
+          posX = 733;
       }
       if( joueur == OUEST )
       {
-          incX = 33;
-          posX = 62 - 33;
+          incX = 48;
+          posX = 109 - 48;
       }
-      incY = 40;
-      posY = 42 - 40;
+      incY = 62;
+      posY = 90 - 62;
 
       imgCopie = m_imgMemPlateau;
 
@@ -3734,9 +3734,9 @@ void CRami::afficherAnimationJetteCarte( const int carte, const quint8 joueur )
         m_imgMemPlateau = imgCopie;
         posX = posX + incX;
         posY = posY + incY;
-        if( posY <= 522 )
+        if( posY <= 902 )
         {
-          afficherUneCarte( posX - 28, posY - 38, carte );
+          afficherUneCarte( posX - 45, posY - 65, carte );
           faireTemporisation( m_tempo_anime );
         }
       }
@@ -3753,9 +3753,9 @@ void CRami::faireTemporisation( const long temporisation )
 
     for( long i = 0; i < temporisation; i++ )
     {
-        for( int i = 0; i < 22; i++ )
+        for( int i = 0; i < TEMPO_VALEUR_BOUCLE; i++ )
         {
-            for( int i = 0; i < 22; i++ )
+            for( int i = 0; i < TEMPO_VALEUR_BOUCLE; i++ )
             {
                 aa = 11.11;
                 bb = 11.11;
@@ -3874,7 +3874,7 @@ void CRami::afficherCartesSelect_Sud( const int posX, const int posY )
       if( carte == 0 )	break;
       p = calculerSourceXY1Carte( carte );
       dessinerUneCarte( dx, dy, p.x(), p.y() );
-      dx= dx + 57;
+      dx= dx + 91;
     }
     m_afficheurImage->afficherImage( m_imgMemPlateau );
 }
@@ -3919,7 +3919,7 @@ void CRami::jeter1Carte( quint8 * ajeu, quint8 carte )
 
     m_cartesjetees[m_index_carte_jetee] = carte;
     m_index_carte_jetee -= 1;
-    afficherUneCarte( 469, 483, carte );
+    afficherUneCarte( 742, 833, carte );
 }
 
 
@@ -3944,30 +3944,30 @@ void CRami::insererCartesDansJeu( quint8 * aJeu, int nbcartes )
 void CRami::afficherCartesPoseesJoueurs()
 {
     effacerCartesPosees();
-    afficherCartesPosees( m_cartesposees_Est, 3, 97 );
-    afficherCartesPosees( m_cartesposees_Nord, 3, 194 );
-    afficherCartesPosees( m_cartesposees_Ouest, 3, 291 );
-    afficherCartesPosees( m_cartesposees_Sud, 3, 388 );
+    afficherCartesPosees( m_cartesposees_Est, 5, 171 );
+    afficherCartesPosees( m_cartesposees_Nord, 5, 333 );
+    afficherCartesPosees( m_cartesposees_Ouest, 5, 495 );
+    afficherCartesPosees( m_cartesposees_Sud, 5, 657 );
 }
 
 void CRami::afficherCartesPoseesSud()
 {
-    afficherCartesPosees( m_cartesposees_Sud, 3, 388 );
+    afficherCartesPosees( m_cartesposees_Sud, 5, 657 );
 }
 
 void CRami::afficherCartesPoseesEst()
 {
-    afficherCartesPosees( m_cartesposees_Est, 3, 97 );
+    afficherCartesPosees( m_cartesposees_Est, 5, 171 );
 }
 
 void CRami::afficherCartesPoseesNord()
 {
-    afficherCartesPosees( m_cartesposees_Nord, 3, 194 );
+    afficherCartesPosees( m_cartesposees_Nord, 5, 333 );
 }
 
 void CRami::afficherCartesPoseesOuest()
 {
-    afficherCartesPosees( m_cartesposees_Ouest, 3, 291 );
+    afficherCartesPosees( m_cartesposees_Ouest, 5, 495 );
 }
 
 void CRami::afficherCartesPosees( QList<quint8> & qlpose, const int posX, const int posY )
@@ -3981,16 +3981,16 @@ void CRami::afficherCartesPosees( QList<quint8> & qlpose, const int posX, const 
 
     nbitems = qlpose.count();
 
-    w_cartes = ( nbitems - 1 ) * 57;
+    w_cartes = ( nbitems - 1 ) * 91;
     if( w_cartes > w_pose )
     {
-      x_cartes = ( w_pose - 57 ) / ( nbitems - 2 );
+      x_cartes = ( w_pose - 91 ) / ( nbitems - 2 );
       x_vides = x_cartes;
     }
     else
     {
-      x_vides = 57;
-      x_cartes = 57;
+      x_vides = 91;
+      x_cartes = 91;
     }
 
     int dx = posX;
@@ -4021,7 +4021,7 @@ quint8 CRami::prendreCarteJetee( quint8 * ajeu )
     quint8 cjp = PASCARTE;
 
     quint8 carte = m_cartesjetees[ m_index_carte_jetee + 2 ];
-    afficherUneCarte( 469, 483, carte );
+    afficherUneCarte( 742, 833, carte );
 
     cjp = m_cartesjetees[ m_index_carte_jetee + 1 ];
     ajeu[ 13 ] = cjp;
@@ -4171,10 +4171,10 @@ bool CRami::verifierPresence1Carte( quint8 * jeu, quint8 carte )
 int CRami::calculerPositionSurRectPosees()
 {
     int pos = SURPOSE_SUD;
-    if ( m_posClicY >= 97 && m_posClicY <= 193 )  pos = SURPOSE_EST;
-    else if ( m_posClicY >= 194 && m_posClicY <= 290 )  pos = SURPOSE_NORD;
-    else if ( m_posClicY >= 291 && m_posClicY <= 387 )  pos = SURPOSE_OUEST;
-  //  else if ( m_posClicY >= 388 && m_posClicY <= 477 )  pos = SURPOSE_SUD;
+    if ( m_posClicY >= 171 && m_posClicY <= 332 )  pos = SURPOSE_EST;
+    else if ( m_posClicY >= 333 && m_posClicY <= 494 )  pos = SURPOSE_NORD;
+    else if ( m_posClicY >= 495 && m_posClicY <= 656 )  pos = SURPOSE_OUEST;
+  //  else if ( m_posClicY >= 657 && m_posClicY <= 818 )  pos = SURPOSE_SUD;
     return pos;
 }
 

@@ -1,7 +1,7 @@
 #ifndef CONSTANTES_H
 #define CONSTANTES_H
 
-const QString VERSION_PROG = "0.6.1";
+const QString VERSION_PROG = "0.6.5";
 const QString NOM_PROG = "Rami";
 const QString ORGANISATION = "JND-Software";
 const QString COPYRIGHT = "@ 2007-2025 JND-Software Inc";
@@ -21,12 +21,15 @@ enum POSSURPOSE { SURPOSE_EST, SURPOSE_NORD, SURPOSE_OUEST, SURPOSE_SUD, SURPOSE
 
 enum VITESSE { VITESSE_LENTE, VITESSE_NORMALE, VITESSE_RAPIDE };
 
+const int RAMI_FERMER = 10;
+const int RAMI_QUITTER = 20;
+
 const int MAX_PASPOSE_FAIBLE = 13;
 const int MAX_PASPOSE_MOYEN = 9;
 const int MAX_PASPOSE_FORT = 4;
 
-const int OFFSET = 60;
-const int W_AFF_ECRAN = 912;
+const int OFFSET = 90;
+const int W_AFF_ECRAN = 1460;
 
 const   quint8 PERSONNE = 0;
 const   quint8 SUD = 10;
@@ -46,6 +49,8 @@ const long TEMPO_ANIME = 75;		/// en milliseconde (1000 = 1 seconde)
 const long TEMPO_FINPARTIE = 2000;
 const long TEMPO_ATTENTE = 500;
 const int TEMPO_TIMER = 125;
+
+const int TEMPO_VALEUR_BOUCLE = 22;
 
 /// CONSTANTES CVALEURJEU
 enum  NOTESPASPOSE { PASPOSE_MEME2 = 300, PASPOSE_MEME3 = 600, PASPOSE_MEME4 = 800, PASPOSE_SUITECXC = 300, PASPOSE_SUITE2 = 300, PASPOSE_TIERCE = 1000 };

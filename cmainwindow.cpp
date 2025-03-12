@@ -58,7 +58,7 @@ CMainWindow::CMainWindow(QWidget *parent)
 
     readSettings();
 
-    QSize size = QSize(918, 655+30+m_heightMenuBar+m_heightStatusBar);
+    QSize size = QSize(1469+12, 1128+30+m_heightMenuBar+m_heightStatusBar);
     setMinimumSize(size);
     setMaximumSize(size);
     resize(size);
@@ -69,6 +69,8 @@ CMainWindow::CMainWindow(QWidget *parent)
     m_statistiqueAct->setEnabled(false);
 
     setPreferences();
+
+    m_quitter_fermer = RAMI_FERMER;
 
     m_pchelpbrowser = 0;
 }
@@ -211,54 +213,89 @@ bool CMainWindow::testerSiPartieEnCours()
 
 void CMainWindow::slotQuitterProg()
 {
-    QMessageBox msgBox(QMessageBox::Question, NOM_PROG + " - Quitter",
-                       "   Quitter le jeu Rami ?   \n",
-                       { },
-                       this);
-    //        msgBox.setInformativeText(" Texte information ");
-    msgBox.addButton(QMessageBox::No);
-    msgBox.addButton(QMessageBox::Yes);
-    int reponse = msgBox.exec();
-    switch (reponse)
-    {
-        case QMessageBox::No:           /// Continuer
-            break;
-        case QMessageBox::Yes:          /// Arrêter
-            writeSettings();
-            /// qt6            qApp->quit();
-            qApp->exit();
-            break;
-        default:
-            break;
-    }
+    m_quitter_fermer = RAMI_QUITTER;
+    qApp->quit();
+
+//     QMessageBox msgBox(QMessageBox::Question, NOM_PROG + " - Quitter",
+//                        "   Quitter le jeu Rami ?   \n",
+//                        { },
+//                        this);
+//     //        msgBox.setInformativeText(" Texte information ");
+//     msgBox.addButton(QMessageBox::No);
+//     msgBox.addButton(QMessageBox::Yes);
+//     int reponse = msgBox.exec();
+//     switch (reponse)
+//     {
+//         case QMessageBox::No:           /// Continuer
+//             break;
+//         case QMessageBox::Yes:          /// Arrêter
+//             writeSettings();
+//             qApp->quit();
+// /// qt6            qApp->exit(); /// Erreur de segmentation (core dumped)
+//             break;
+//         default:
+//             break;
+//     }
 }
 
 void CMainWindow::closeEvent(QCloseEvent *event)
 {
-    QString msg = statusBar()->currentMessage();
-    m_messagestatusbar = "Fermer le jeu?";
-    afficherStatusBar();
+    QString msg;
+    msg = statusBar()->currentMessage();
 
-    QMessageBox msgBox(QMessageBox::Question, NOM_PROG + " - Fermer",
-                       "   Fermer le jeu Rami ?   \n",
-                       { },
-                       this);
-    //        msgBox.setInformativeText(" Texte information ");
-    msgBox.addButton(QMessageBox::No);
-    msgBox.addButton(QMessageBox::Yes);
-    int reponse = msgBox.exec();
-    switch (reponse)
+    if( m_quitter_fermer == RAMI_QUITTER )
     {
-        case QMessageBox::No:           /// Continuer
-            statusBar()->showMessage(msg);
-            event->ignore();
+        m_messagestatusbar = "Quitter le jeu?";
+        afficherStatusBar();
+        QMessageBox msgBoxq(QMessageBox::Question, NOM_PROG + " - Quitter",
+                           "   Quitter le jeu Rami ?   \n",
+                           { },
+                           this);
+        //        msgBoxq.setInformativeText(" Texte information ");
+        msgBoxq.addButton(QMessageBox::No);
+        msgBoxq.addButton(QMessageBox::Yes);
+        int reponse = msgBoxq.exec();
+        switch (reponse)
+        {
+            case QMessageBox::No:           /// Continuer
+                m_quitter_fermer = RAMI_FERMER;
+                statusBar()->showMessage(msg);
+                event->ignore();
+                break;
+            case QMessageBox::Yes:          /// Arrêter
+                writeSettings();
+                event->accept();
+                break;
+            default:
+                break;
+        }
+    }
+    else
+    {
+        m_messagestatusbar = "Fermer le jeu?";
+        afficherStatusBar();
+
+        QMessageBox msgBox(QMessageBox::Question, NOM_PROG + " - Fermer",
+                            "   Fermer le jeu Rami ?   \n",
+                            { },
+                            this);
+        //        msgBox.setInformativeText(" Texte information ");
+        msgBox.addButton(QMessageBox::No);
+        msgBox.addButton(QMessageBox::Yes);
+        int reponse = msgBox.exec();
+        switch (reponse)
+        {
+            case QMessageBox::No:           /// Continuer
+                statusBar()->showMessage(msg);
+                event->ignore();
+                break;
+            case QMessageBox::Yes:          /// Arrêter
+                writeSettings();
+                event->accept();
+                break;
+            default:
             break;
-        case QMessageBox::Yes:          /// Arrêter
-            writeSettings();
-            event->accept();
-            break;
-        default:
-            break;
+        }
     }
 }
 

@@ -51,6 +51,8 @@ private:
     CRami		*m_pcrami;
     CHelpBrowser *m_pchelpbrowser;
 
+    int m_quitter_fermer;
+
     int m_nbjoueurs;
 
     bool m_f_animecarte;
