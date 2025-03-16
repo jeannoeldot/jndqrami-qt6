@@ -135,7 +135,7 @@ CRami::CRami(QWidget *parent)
 
     m_rectpioche = QRect(634,833,90,131);
     m_rectjetees = QRect(742,833,90,131);
-    m_rectcartes = QRect(90,990,1230,131);
+    m_rectcartes = QRect(90,990,1273,131);
     m_rectposees = QRect(5,139,1459,680);
 
     m_periodeJeu = ATTENTE;
