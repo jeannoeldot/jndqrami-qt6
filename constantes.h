@@ -1,7 +1,7 @@
 #ifndef CONSTANTES_H
 #define CONSTANTES_H
 
-const QString VERSION_PROG = "0.6.6";
+const QString VERSION_PROG = "0.6.7";
 const QString NOM_PROG = "Rami";
 const QString ORGANISATION = "JND-Software";
 const QString COPYRIGHT = "@ 2007-2025 JND-Software Inc";
@@ -45,7 +45,10 @@ const   quint8 MARKSUITE = 123;
 const   quint8 MARKMEME = 99;
 const   quint8 MARKFIN = 255;
 
-const long TEMPO_ANIME = 75;		/// en milliseconde (1000 = 1 seconde)
+// const long TEMPO_ANIME = 75;		/// en milliseconde (1000 = 1 seconde)
+// const long TEMPO_FINPARTIE = 2000;
+// const long TEMPO_ATTENTE = 500;
+const long TEMPO_ANIME = 100;		/// en milliseconde (1000 = 1 seconde)
 const long TEMPO_FINPARTIE = 2000;
 const long TEMPO_ATTENTE = 500;
 const int TEMPO_TIMER = 125;

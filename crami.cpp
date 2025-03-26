@@ -3697,6 +3697,7 @@ void CRami::afficherAnimationPiocheCarte( const int carte, const quint8 joueur )
           faireTemporisation( m_tempo_anime );
         }
       }
+      faireTemporisation( 50 );
 
       m_imgMemPlateau = imgCopie;
       m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -3740,6 +3741,7 @@ void CRami::afficherAnimationJetteCarte( const int carte, const quint8 joueur )
           faireTemporisation( m_tempo_anime );
         }
       }
+      faireTemporisation( 50 );
 
       m_imgMemPlateau = imgCopie;
       m_afficheurImage->afficherImage( m_imgMemPlateau );
@@ -3843,7 +3845,7 @@ void CRami::setVitesse( const int vitesse )
       case VITESSE_LENTE :
         m_tempo_anime = TEMPO_ANIME * 2;
         m_tempo_finpartie = TEMPO_FINPARTIE * 2;
-        m_tempo_attente = TEMPO_ATTENTE * 2;
+        m_tempo_attente = TEMPO_ATTENTE + 200;
         m_tempo_timer = TEMPO_TIMER * 2;
         break;
       case VITESSE_NORMALE :
@@ -3855,7 +3857,7 @@ void CRami::setVitesse( const int vitesse )
       case VITESSE_RAPIDE :
         m_tempo_anime = TEMPO_ANIME / 2;
         m_tempo_finpartie = TEMPO_FINPARTIE / 2;
-        m_tempo_attente = TEMPO_ATTENTE / 2;
+        m_tempo_attente = TEMPO_ATTENTE - 200;
         m_tempo_timer = TEMPO_TIMER / 2;
         break;
     }
